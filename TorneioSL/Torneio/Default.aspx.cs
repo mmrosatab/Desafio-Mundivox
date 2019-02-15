@@ -23,7 +23,8 @@ public partial class _Default : System.Web.UI.Page
             if ((numChaves & (numChaves - 1)) == 0 && (numTimes & (numTimes - 1)) == 0)
             {
                 Response.Write("Tudo Ok");
-
+                Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
+            
             }
             else
             {
