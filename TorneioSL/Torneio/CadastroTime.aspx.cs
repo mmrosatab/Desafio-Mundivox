@@ -16,7 +16,7 @@ public partial class CadastroTime : System.Web.UI.Page
         int numChaves = Convert.ToInt32(Request.QueryString["numChaves"]);
         int numTimes = Convert.ToInt32(Request.QueryString["numTimes"]);
 
-        times = new IList<String>(numTimes);
+        //times = new IList<String>(numTimes);
 
         for (int i = 1; i <= numTimes; i++)
         {

@@ -12,29 +12,65 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
+    // verificar se eh potencia de 2
+    private bool ePotenciaDois(int num)
+    {
+        if ((num & (num - 1)) == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    // verificar se parametros torneio são validos
+    private bool confTorneioValida(int num)
+    {
+        if (ePotenciaDois(num) && (num >= 2))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    // verificar se num. times torneio eh valida
+    private bool numTimesValido(int numTimes, int numChaves)
+    {
+        if (numTimes >= numChaves)
+        {
+           return true; 
+        }
+        return false;
+    }
+
+    
+    // acao botao criar torneio
     protected void btnCriarTorneio_Click(object sender, EventArgs e)
     {
 
         int numChaves = Convert.ToInt32(tbNumChaves.Text);
         int numTimes = Convert.ToInt32(tbNumTimes.Text);
 
-        if (numChaves >= 2 && numTimes >= 2 && numTimes >= numChaves)
+        if (!confTorneioValida(numTimes))
         {
-            if ((numChaves & (numChaves - 1)) == 0 && (numTimes & (numTimes - 1)) == 0)
-            {
-                Response.Write("Tudo Ok");
-                Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
+            Response.Write("O n° de times deve ser uma potencia de 2.");
             
-            }
-            else
-            {
-                Response.Write("O n° de times e n° de chaves deve ser uma potencia de 2.");
-            }
-        }
-        else
+        }else if (!confTorneioValida(numChaves))
         {
-            Response.Write("O n° de times e n° de chaves deve ser maior ou igual a 2. ");
-            Response.Write("O n° de times deve ser maior que o n° de chaves.");
+
+            Response.Write("O n° de chaves deve ser uma potencia de 2.");
+            
+        }else if (!numTimesValido(numTimes, numChaves))
+        {
+            Response.Write("O n° de times deve ser maior ou igual que o n° de chaves.");
+
+        }else
+        {
+            // dados validos
+
+            // enviar configuracao torneio para outro form
+            Response.Write("Tudo Ok");
+            Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
+            //return true;
         }
     }
 }
