@@ -9,12 +9,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 113px">
-            <p>
+        <div style="height: 113px; width: 693px;">
+            <p style="width: 633px; margin-left: 8px">
+                <asp:Label ID="linsett" runat="server" Text="Selecione uma das opçoes na caixa abaixo e insira o nome do time:"></asp:Label>
+            </p>
+            <p style="width: 643px">
                  <asp:DropDownList ID="ddlTimes" runat="server" style="margin-left: 7px">
                 </asp:DropDownList>
             </p>
-            <p style="width: 676px; margin-left: 7px">
+            <p style="width: 638px; margin-left: 7px">
                  <asp:TextBox ID="tbNomeTime" runat="server"></asp:TextBox>
             </p>
             <p>

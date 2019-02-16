@@ -27,8 +27,17 @@ public partial class CadastroTime : System.Web.UI.Page
 
     protected void btnCadTime_Click(object sender, EventArgs e)
     {
-        // times acabaram
-        //if ()
-    }
+        if(!Page.IsPostBack)
+        {
+            // enquanto times acabaram
+            if (ddlTimes.Items.Count > 0 && tbNomeTime.Text.Length > 0)
+            {
+                string nomeTime = tbNomeTime.Text;
+                Response.Write(nomeTime);
 
+            }
+  
+        }
+
+    }
 }

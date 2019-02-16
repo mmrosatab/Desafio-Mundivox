@@ -53,24 +53,30 @@ public partial class _Default : System.Web.UI.Page
         if (!confTorneioValida(numTimes))
         {
             Response.Write("O n° de times deve ser uma potencia de 2.");
-            
-        }else if (!confTorneioValida(numChaves))
+            tbNumTimes.BackColor = System.Drawing.Color.Red;
+
+        }
+        else if (!confTorneioValida(numChaves))
         {
 
             Response.Write("O n° de chaves deve ser uma potencia de 2.");
-            
-        }else if (!numTimesValido(numTimes, numChaves))
+            tbNumChaves.BackColor = System.Drawing.Color.Red;
+
+        }
+        else if (!numTimesValido(numTimes, numChaves))
         {
             Response.Write("O n° de times deve ser maior ou igual que o n° de chaves.");
+            tbNumTimes.BackColor = System.Drawing.Color.Green;
 
-        }else
+        }
+        else
         {
             // dados validos
 
             // enviar configuracao torneio para outro form
-            Response.Write("Tudo Ok");
+            //Response.Write("Tudo Ok");
             Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
-            //return true;
+              
         }
     }
 }
