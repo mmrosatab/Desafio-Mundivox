@@ -9,6 +9,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //btnCriarTorneio.Attributes.Add("onClick", "return validar()");
 
     }
 
@@ -42,42 +43,12 @@ public partial class _Default : System.Web.UI.Page
         return false;
     }
 
-    
-    // acao botao criar torneio
     protected void btnCriarTorneio_Click(object sender, EventArgs e)
     {
-
+        // Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
         int numChaves = Convert.ToInt32(tbNumChaves.Text);
         int numTimes = Convert.ToInt32(tbNumTimes.Text);
-
-        if (!confTorneioValida(numTimes))
-        {
-            Response.Write("O n° de times deve ser uma potencia de 2.");
-            tbNumTimes.BackColor = System.Drawing.Color.Red;
-
-        }
-        else if (!confTorneioValida(numChaves))
-        {
-
-            Response.Write("O n° de chaves deve ser uma potencia de 2.");
-            tbNumChaves.BackColor = System.Drawing.Color.Red;
-
-        }
-        else if (!numTimesValido(numTimes, numChaves))
-        {
-            Response.Write("O n° de times deve ser maior ou igual que o n° de chaves.");
-            tbNumTimes.BackColor = System.Drawing.Color.Green;
-
-        }
-        else
-        {
-            // dados validos
-
-            // enviar configuracao torneio para outro form
-            //Response.Write("Tudo Ok");
-            Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
-              
-        }
+        Response.Redirect("~/CadastroTime.aspx?numChaves="+ numChaves + "&numTimes=" + numTimes);
     }
 }
 
