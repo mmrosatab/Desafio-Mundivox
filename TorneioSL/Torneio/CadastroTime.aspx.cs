@@ -8,36 +8,34 @@ using System.Web.UI.WebControls;
 
 public partial class CadastroTime : System.Web.UI.Page
 {
-    public IList times;
+    private List <Tuple<string, string>> times;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Response.Write(Request.QueryString["numChaves"] + Request.QueryString["numTimes"]);
-        int numChaves = Convert.ToInt32(Request.QueryString["numChaves"]);
-        int numTimes = Convert.ToInt32(Request.QueryString["numTimes"]);
-
-        //times = new IList<String>(numTimes);
-
-        for (int i = 1; i <= numTimes; i++)
+        if (!IsPostBack)  // faz ddl nao repretir valores
         {
-            ddlTimes.Items.Add("Time " + i);
+            //Response.Write(Request.QueryString["numChaves"] + Request.QueryString["numTimes"]);
+            int numChaves = Convert.ToInt32(Session["numChaves"].ToString());
+            int numTimes = Convert.ToInt32(Session["numTimes"].ToString());
+
+            for (int i = 1; i <= numTimes; i++)
+            {
+                ddlTimes.Items.Add("Time " + i);
+            }   
         }
-        //btnCadTime
     }
 
     protected void btnCadTime_Click(object sender, EventArgs e)
     {
-        if(!Page.IsPostBack)
+
+        // enquanto times acabaram
+        /*
+        if (ddlTimes.Items.Count > 0 && tbNomeTime.Text.Length > 0)
         {
-            // enquanto times acabaram
-            if (ddlTimes.Items.Count > 0 && tbNomeTime.Text.Length > 0)
-            {
-                string nomeTime = tbNomeTime.Text;
-                Response.Write(nomeTime);
+            string nomeTime = tbNomeTime.Text;
+            Response.Write(nomeTime);
 
-            }
-  
         }
-
+        */
     }
 }

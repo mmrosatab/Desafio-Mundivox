@@ -14,7 +14,7 @@
                 <asp:Label ID="linsett" runat="server" Text="Selecione uma das opçoes na caixa abaixo e insira o nome do time:"></asp:Label>
             </p>
             <p style="width: 643px">
-                 <asp:DropDownList ID="ddlTimes" runat="server" style="margin-left: 7px">
+                 <asp:DropDownList ID="ddlTimes" runat="server" style="margin-left: 7px" AutoPostBack="True">
                 </asp:DropDownList>
             </p>
             <p style="width: 638px; margin-left: 7px">
