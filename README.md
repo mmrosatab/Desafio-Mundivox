@@ -1,2 +1,4 @@
-# Desafio-Mundivox
-Aplicação Web para sistema de torneio mata-mata utilizando C# e .Net
+# DesafioMundivox
+
+Este repositório se destina ao projeto pra o desafio Mundivox. O projeto consiste em uma aplicação Web para um sistema de torneio mata-mata utilizando C# e .Net.
+
